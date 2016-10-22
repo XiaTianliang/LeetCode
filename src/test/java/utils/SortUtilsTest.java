@@ -5,19 +5,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
-import static utils.Sorts.insertSort;
-import static utils.Sorts.mergeSort;
-import static utils.Sorts.quickSort;
+import static utils.SortUtils.insertSort;
+import static utils.SortUtils.mergeSort;
+import static utils.SortUtils.quickSort;
 
 /**
  * Created by tianliangxia on 16-10-21.
  */
 
-public class SortsTest {
+public class SortUtilsTest {
     int[] ints,cp;
     @Before
     public void before(){
-        ints = Randoms.ints(50);
+        ints = RandomUtils.ints(50);
         cp = Arrays.copyOf(ints,ints.length);
     }
 
