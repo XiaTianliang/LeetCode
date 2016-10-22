@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by tianliangxia on 16-10-21.
  */
-public class Sorts {
+public class SortUtils {
     private static final int INSERT_SORT_UM = 8;
     public static void sort(int[] array){
         sort(array, 0, array.length - 1);

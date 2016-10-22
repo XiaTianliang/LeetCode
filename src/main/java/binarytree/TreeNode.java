@@ -1,11 +1,9 @@
 package binarytree;
 
 import sun.reflect.generics.tree.Tree;
+import utils.ArrayUtils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by tianliangxia on 16-10-22.
@@ -227,8 +225,49 @@ public class TreeNode {
                 || match(root.left, pattern) || match(root.right, pattern);
     }
 
+    /***
+     * 由前序中序得到TreeNode
+     * 数字不能重复
+     * @param pre
+     * @param in
+     * @return
+     */
 
 
+    public static TreeNode constructWithPreAndInOrder(int[] pre, int[] in){
+        if(pre == null || pre.length == 0 || in == null || in.length == 0)
+            return null;
+        int root_val = pre[0];
+        int idx = ArrayUtils.indexOf(in, root_val);
+        int left_len = idx;
+        int right_len = pre.length-left_len-1;
+        TreeNode root = new TreeNode(root_val);
+        int[] pre_left = Arrays.copyOfRange(pre, 1, 1+left_len);
+        int[] pre_right = Arrays.copyOfRange(pre, idx+1, idx+1+right_len);
+        int[] in_left = Arrays.copyOfRange(in, 0, left_len);
+        int[] in_right = Arrays.copyOfRange(in, idx+1, idx+1+right_len);
 
+        root.left = constructWithPreAndInOrder(pre_left, in_left);
+        root.right = constructWithPreAndInOrder(pre_right, in_right);
+        return root;
+    }
+
+    public static TreeNode constructWithInAndPostOrder(int[] in, int[] post){
+        if(post == null || post.length == 0 || in == null || in.length == 0)
+            return null;
+        int root_val = post[post.length-1];
+        int idx = ArrayUtils.indexOf(in, root_val);
+        int left_len = idx;
+        int right_len = post.length-left_len-1;
+        TreeNode root = new TreeNode(root_val);
+        int[] post_left = Arrays.copyOfRange(post, 0, left_len);
+        int[] post_right = Arrays.copyOfRange(post, left_len, post.length-1);
+        int[] in_left = Arrays.copyOfRange(in, 0, left_len);
+        int[] in_right = Arrays.copyOfRange(in, idx+1, idx+1+right_len);
+
+        root.left = constructWithInAndPostOrder(in_left, post_left);
+        root.right = constructWithInAndPostOrder(in_right, post_right);
+        return root;
+    }
 
 }

@@ -108,4 +108,19 @@ public class TreeNodeTest {
         assertEquals(true, TreeNode.match(root, pattern));
     }
 
+    @Test
+    public void constructWithPreAndInOrderTest(){
+        TreeNode root = TreeNode.construct("[1,2,3,8,4,5,#,#,#,6,#,9,7,#,#,#,#,#,#]");
+        TreeNode node = TreeNode.constructWithPreAndInOrder(new int[]{1,2,8,4,6,3,5,9,7},
+                new int[]{8,2,6,4,1,9,5,7,3});
+        assertEquals(TreeNode.toString(root), TreeNode.toString(node));
+    }
+    @Test
+    public void constructWithInAndPostOrderTest(){
+        TreeNode root = TreeNode.construct("[1,2,3,8,4,5,#,#,#,6,#,9,7,#,#,#,#,#,#]");
+        TreeNode node = TreeNode.constructWithInAndPostOrder(new int[]{8,2,6,4,1,9,5,7,3},
+                new int[]{8,6,4,2,9,7,5,3,1});
+        assertEquals(TreeNode.toString(root), TreeNode.toString(node));
+    }
+
 }
