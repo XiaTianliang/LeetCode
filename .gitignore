@@ -1,0 +1,29 @@
+.idea/
+*.iml
+out/
+target/
+.classpath
+.project
+.settings
+.externalToolBuilders
+.DS_Store
+bin/
+Thumbs.db
+classes
+/res/drawable-hdpi/Thumbs.db
+mobile.eml
+mobile.iml
+mobile.userlibraries
+*.pid
+/do.sh
+*/catalina*
+pom.xml.versionsBackup
+logs/
+*.log
+collectortestdatadir/
+testimagegenbasedir/
+shaka-container/shaka.logs.path_IS_UNDEFINED
+将删除 .gitignore
+将删除 src/main/resources/
+将删除 target/generated-sources/
+将删除 target/generated-test-sources/
