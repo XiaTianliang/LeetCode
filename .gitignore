@@ -23,7 +23,11 @@ logs/
 collectortestdatadir/
 testimagegenbasedir/
 shaka-container/shaka.logs.path_IS_UNDEFINED
-将删除 .gitignore
-将删除 src/main/resources/
-将删除 target/generated-sources/
-将删除 target/generated-test-sources/
+input*
+noneWifi.txt
+wifi.txt
+/src/main/java/wap
+#将删除 .gitignore
+#将删除 src/main/resources/
+#将删除 target/generated-sources/
+#将删除 target/generated-test-sources/
